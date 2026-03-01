@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Bakery | Amb's Favorite Cake Shop</title>
+    <meta name="description" content="Freshly baked goodness delivered to your door. Custom cakes, pastries, and bread in Amb, Himachal Pradesh.">
+
+    <!-- Fonts: Playfair Display (Serif/Premium) & Inter (Sans/Clean) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#2B1B17',   /* Dark Chocolate */
+                            primary: '#C68E17', /* Caramel/Golden Crust */
+                            cream: '#F9F5F0',   /* Creamy Off-white */
+                            accent: '#E6DACE',  /* Light Mocha */
+                            muted: '#8C7C75',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-brand-cream text-brand-dark antialiased overflow-x-hidden selection:bg-brand-primary selection:text-white">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 border-b border-transparent py-4">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+            <a href="#" class="group flex items-center gap-2">
+                <span class="font-serif text-2xl font-bold tracking-tight text-brand-dark group-hover:text-brand-primary transition-colors">
+                    Hero Bakery
+                </span>
+                <span class="hidden md:inline-block text-xs font-serif italic text-brand-muted mt-1">हीरो बेकरी</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#features" class="text-sm font-medium hover:text-brand-primary transition-colors">Our Craft</a>
+                <a href="#reviews" class="text-sm font-medium hover:text-brand-primary transition-colors">Reviews</a>
+                <a href="#location" class="text-sm font-medium hover:text-brand-primary transition-colors">Visit Us</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="tel:09816640079" class="hidden md:flex btn-primary items-center gap-2 px-6 py-2.5 rounded-full bg-brand-dark text-white text-sm font-medium hover:bg-brand-primary transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                    <span>Call to Order</span>
+                </a>
+                <!-- Mobile Menu Button (Simplified for this demo) -->
+                <button class="md:hidden p-2 text-brand-dark">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/60 to-transparent z-10"></div>
+            <img src="https://images.unsplash.com/photo-1626803775151-61d756612fcd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+                 alt="Artisan Chocolate Cake" 
+                 class="w-full h-full object-cover parallax-bg scale-105">
+        </div>
+
+        <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full">
+            <div class="max-w-2xl hero-content opacity-0 translate-y-8">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/20 border border-brand-primary/30 backdrop-blur-sm mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-brand-primary">Open Daily at 8 AM</span>
+                </div>
+                
+                <h1 class="font-serif text-5xl md:text-7xl font-bold text-white leading-[1.1] mb-6">
+                    Amb's Favorite <br>
+                    <span class="text-brand-primary italic">Bakery & Cake Shop</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-brand-cream/80 mb-10 font-light leading-relaxed max-w-lg">
+                    Freshly baked goodness delivered to your door. Custom cakes, fresh pastries, and daily bread made with passion.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="tel:09816640079" class="btn-primary flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-primary text-brand-dark text-base font-bold hover:bg-white transition-all shadow-lg hover:shadow-brand-primary/50">
+                        <span>Call to Order</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#location" class="btn-secondary flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white hover:bg-white hover:text-brand-dark transition-all backdrop-blur-sm">
+                        <span>Find Us</span>
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="mt-12 flex items-center gap-4 text-white/60 text-sm">
+                    <div class="flex items-center gap-1 text-brand-primary">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <span class="font-bold text-white">3.8</span>
+                    </div>
+                    <span class="w-1 h-1 rounded-full bg-white/30"></span>
+                    <span>668+ Google Reviews</span>
+                    <span class="w-1 h-1 rounded-full bg-white/30"></span>
+                    <span>₹₹ Affordable Luxury</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-brand-cream relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                <!-- Dynamic Content Loading Here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Break / Aesthetic Filler -->
+    <section class="w-full h-[60vh] relative overflow-hidden group">
+        <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+             alt="Fresh Croissants">
+        <div class="absolute inset-0 bg-brand-dark/20 group-hover:bg-brand-dark/10 transition-colors"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="bg-white/90 backdrop-blur-md p-8 md:p-12 text-center max-w-xl mx-4 shadow-2xl">
+                <h3 class="font-serif text-3xl text-brand-dark mb-4">Taste the Tradition</h3>
+                <p class="text-brand-muted">Every loaf, every cake tells a story of local ingredients and timeless recipes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl text-brand-dark mb-4">Loved by Locals</h2>
+                <div class="flex justify-center items-center gap-2 text-brand-primary mb-2">
+                    <div class="flex" id="stars-container"></div>
+                </div>
+                <p class="text-brand-muted">Based on 668+ Reviews on Google</p>
+            </div>
+
+            <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Reviews injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Info & Location -->
+    <section id="location" class="py-24 bg-brand-dark text-brand-cream relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+            <div>
+                <h2 class="font-serif text-4xl mb-8">Visit Us Today</h2>
+                
+                <div class="space-y-8">
+                    <div class="flex gap-4 items-start group">
+                        <div class="p-3 bg-white/5 rounded-lg group-hover:bg-brand-primary group-hover:text-brand-dark transition-colors">
+                            <i data-lucide="map-pin" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">Location</h4>
+                            <p class="text-brand-cream/70 leading-relaxed">
+                                Amb Chowk, Una Rd, Amb,<br>
+                                Himachal Pradesh 177203
+                            </p>
+                            <a href="https://goo.gl/maps/placeholder" target="_blank" class="text-brand-primary text-sm mt-2 inline-block hover:underline">Get Directions</a>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start group">
+                        <div class="p-3 bg-white/5 rounded-lg group-hover:bg-brand-primary group-hover:text-brand-dark transition-colors">
+                            <i data-lucide="clock" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">Opening Hours</h4>
+                            <p class="text-brand-cream/70">Opens daily at 8:00 AM</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start group">
+                        <div class="p-3 bg-white/5 rounded-lg group-hover:bg-brand-primary group-hover:text-brand-dark transition-colors">
+                            <i data-lucide="phone" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">Contact</h4>
+                            <a href="tel:09816640079" class="text-2xl font-serif text-white hover:text-brand-primary transition-colors">098166 40079</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Placeholder Map -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.6268712345!2d76.1234567!3d31.6789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQwJzQ0LjAiTiA3NsKwMDcnMjQuMCJF!5e0!3m2!1sen!2sin!4v1625561234567!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <span class="font-serif text-xl font-bold text-white">Hero Bakery</span>
+                <p class="text-sm text-brand-cream/40 mt-1">© 2026 Hero Bakery. All rights reserved.</p>
+            </div>
+            <div class="flex gap-6">
+                <!-- Social placeholders -->
+                <a href="#" class="text-brand-cream/60 hover:text-brand-primary transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="#" class="text-brand-cream/60 hover:text-brand-primary transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

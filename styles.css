@@ -1,0 +1,53 @@
+/* Custom properties specifically for complex gradients or shadows */
+:root {
+    --shadow-soft: 0 20px 40px -10px rgba(43, 27, 23, 0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Premium Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+}
+
+/* Specific component styles */
+.feature-card {
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #F9F5F0;
+}
+::-webkit-scrollbar-thumb {
+    background: #C68E17;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #2B1B17;
+}
+
+/* Navbar glass effect when scrolled */
+.nav-scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+/* GSAP Init States */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(30px);
+}
